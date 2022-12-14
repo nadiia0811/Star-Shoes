@@ -1,1 +1,112 @@
+body {
+    font-family: 'Inter';
+    background-color: #e7f6ff;
+    margin: 0;
+   }
+
+  * {
+    font-family: 'Inter';
+  }
+  
+  .wrapper {
+    background: #FFFFFF;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
+    border-radius: 20px;
+    max-width: 1080px;
+    margin: 50px auto;
+            
+  
+    header {
+        border-bottom: 1px solid #e7f6ff;
+        img {
+          margin-right: 15px;
+        }
+      h3, p {
+          margin: 0;
+      }
+
+      ul {
+        .icon {
+          width: 20px;
+          height: 20px;
+            &-cart {
+              color: darkolivegreen;
+            }
+            &-heart {
+              color: rgba(0,0,0,0.6);;
+            }
+            &-user {
+              color: rgba(0,0,0,0.6);
+            }
+        }
+      }
+    }          
+    
+        .content {  
+         
+
+           .wrap {
+              width: 100%;
+              display: flex;
+              flex-direction: row;
+              flex-wrap: wrap;
+          }
+ 
+
+
+          .card {
+              border: 2px solid #f1f1f1;
+              padding: 20px;
+              width: 220px;
+              border-radius: 30px;
+              transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+              cursor: pointer;
+              margin-bottom: 35px;
+
+              p {
+                font-weight: 500;
+              }
+              span {
+                font-size: 12px;
+                font-weight: 600;
+                text-transform: uppercase;
+                opacity: 0.8;
+              }
+
+              .button {
+                  background: #f1f1f1;
+                  border: 1px solid #dcdcdc;
+                  box-sizing: border-box;
+                  border-radius: 8px;
+                  height: 32px;
+                  width: 32px;
+
+                  &:hover {
+                    box-shadow: 0 14px 20px rgba(0,0,0,0.2);
+                    transform: translateY(-3px);
+                  }
+              }                        
+            }
+
+          .search-block {
+            border: 2px solid #cbcee3;
+            border-radius: 5px;
+            padding: 0 10px;
+            
+
+            input {
+              border: 0;
+              padding: 6px;
+              font-size: 16px;
+              width: 200px;
+            }
+          }
+        }  
+      }
+          
+  
+
+  
+
+      
 
