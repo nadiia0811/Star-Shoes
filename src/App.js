@@ -8,6 +8,44 @@ function App() {
   return (
     
 <div className="wrapper clear">
+
+
+
+  <div className="overlay">
+    <div className="drower">
+        <h2 className='mb-30'>Cart</h2>
+        <div className="cart-item d-flex align-center mb-10">
+          <img src="/img/sneakers/1.jpg" 
+               alt="sneakers"
+               className="mr-10" 
+               width={70} 
+               height={70}/>
+          <div className="mr-10">
+            <p className="mb-5">Man Sneakers Nike Blazer Mid Suede</p>
+            <b>129 $</b>
+          </div>
+          <img src="/img/btn-remove.svg" 
+               alt="Remove button" 
+               className="mt-5 remove-btn"/>
+        </div>
+
+        <div className="cart-item d-flex align-center mb-10">
+          <img src="/img/sneakers/5.jpg" 
+               alt="sneakers"
+               className="mr-10" 
+               width={70} 
+               height={70}/>
+          <div className="mr-10">
+            <p className="mb-5">Man Sneakers Puma X Aka Boku Future Rider</p>
+            <b>119 $</b>
+          </div>
+          <img src="/img/btn-remove.svg" 
+               alt="Remove button" 
+               className="mt-5 remove-btn"/>
+        </div>
+
+    </div>
+  </div>
     
       {/* <div className="cart-item d-flex justify-between align-center mb-20">
         <img src="img/sneakers/1.jpg" 
@@ -73,6 +111,184 @@ function App() {
             </div>
       </div>
       
+      {/* <div className='d-flex justify-between wrap'>
+
+        <div className="card">
+          <div className="favorite">
+            <img src="img/heart-liked.svg" alt="Liked" />
+          </div>
+        
+          <img src="/img/sneakers/1.jpg" 
+               alt="Sneakers" 
+               width={133}
+               height={112}/>
+          <p>Man Sneakers Nike Blazer Mid Suede</p>
+          <div className='d-flex justify-between align-center'>
+            <div className='d-flex flex-column'>
+              <span>Price:</span>
+              <b>129 $</b>
+            </div>
+           <button className='button'>
+              <img src="/img/plus.svg" alt="Plus button" />
+           </button>
+          </div>
+        </div>
+
+        <div className="card">
+          <div className="favorite">
+            <img src="img/heart-unliked.svg" alt="Liked" />
+          </div>
+          <img src="/img/sneakers/2.jpg" 
+               alt="Sneakers" 
+               width={133}
+               height={112}/>
+          <p>Man Sneakers Nike Air Max 270</p>
+          <div className='d-flex justify-between align-center'>
+            <div className='d-flex flex-column'>
+              <span>Price:</span>
+              <b>200 $</b>
+            </div>
+           <button className='button'>
+              <img src="/img/plus.svg" alt="Plus button" />
+           </button>
+          </div>
+        </div>
+
+        <div className="card">
+          <div className="favorite">
+            <img src="img/heart-unliked.svg" alt="Liked" />
+          </div>
+          <img src="/img/sneakers/3.jpg" 
+               alt="Sneakers" 
+               width={133}
+               height={112}/>
+          <p>Man Sneakers Nike Blazer Mid Suede</p>
+          <div className='d-flex justify-between align-center'>
+            <div className='d-flex flex-column'>
+              <span>Price:</span>
+              <b>179 $</b>
+            </div>
+           <button className='button'>
+              <img src="/img/plus.svg" alt="Plus button" />
+           </button>
+          </div>
+        </div>
+
+        <div className="card">
+           <div className="favorite">
+              <img src="img/heart-unliked.svg" alt="Liked" />
+           </div>
+          <img src="/img/sneakers/4.jpg" 
+               alt="Sneakers" 
+               width={133}
+               height={112}/>
+          <p>Man Sneakers Puma X Aka Boku Future Rider</p>
+          <div className='d-flex justify-between align-center'>
+            <div className='d-flex flex-column'>
+              <span>Price:</span>
+              <b>119 $</b>
+            </div>
+           <button className='button'>
+              <img src="/img/plus.svg" alt="Plus button" />
+           </button>
+          </div>
+        </div>
+
+        <div className="card">
+           <div className="favorite">
+              <img src="img/heart-unliked.svg" alt="Liked" />
+           </div>
+          <img src="/img/sneakers/5.jpg" 
+               alt="Sneakers" 
+               width={133}
+               height={112}/>
+          <p>Man Sneakers Puma X Aka Boku Future Rider</p>
+          <div className='d-flex justify-between align-center'>
+            <div className='d-flex flex-column'>
+              <span>Price:</span>
+              <b>119 $</b>
+            </div>
+           <button className='button'>
+              <img src="/img/plus.svg" alt="Plus button" />
+           </button>
+          </div>
+        </div>
+
+        <div className="card">
+           <div className="favorite">
+              <img src="img/heart-unliked.svg" alt="Liked" />
+           </div>
+          <img src="/img/sneakers/6.jpg" 
+               alt="Sneakers" 
+               width={133}
+               height={112}/>
+          <p>Man Sneakers Puma X Aka Boku Future Rider</p>
+          <div className='d-flex justify-between align-center'>
+            <div className='d-flex flex-column'>
+              <span>Price:</span>
+              <b>119 $</b>
+            </div>
+           <button className='button'>
+              <img src="/img/plus.svg" alt="Plus button" />
+           </button>
+          </div>
+        </div>
+
+        <div className="card">
+           <div className="favorite">
+              <img src="img/heart-unliked.svg" alt="Liked" />
+           </div>
+          <img src="/img/sneakers/7.jpg" 
+               alt="Sneakers" 
+               width={133}
+               height={112}/>
+          <p>Man Sneakers Puma X Aka Boku Future Rider</p>
+          <div className='d-flex justify-between align-center'>
+            <div className='d-flex flex-column'>
+              <span>Price:</span>
+              <b>119 $</b>
+            </div>
+           <button className='button'>
+              <img src="/img/plus.svg" alt="Plus button" />
+           </button>
+          </div>
+        </div>
+
+        <div className="card">
+           <div className="favorite">
+              <img src="img/heart-unliked.svg" alt="Liked" />
+           </div>
+          <img src="/img/sneakers/8.jpg" 
+               alt="Sneakers" 
+               width={133}
+               height={112}/>
+          <p>Man Sneakers Puma X Aka Boku Future Rider</p>
+          <div className='d-flex justify-between align-center'>
+            <div className='d-flex flex-column'>
+              <span>Price:</span>
+              <b>119 $</b>
+            </div>
+            <button className='button'>
+                <img src="/img/plus.svg" alt="Plus button" />
+            </button>
+          </div>
+        </div>
+      </div>
+
+    */}
+
+
+
+
+
+
+
+
+
+
+
+
+
       <div className='d-flex justify-between wrap'>
 
         <div className="card">
@@ -235,13 +451,23 @@ function App() {
             </button>
           </div>
         </div>
-
-
-
       </div>
-    </div>
-  
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>   
 </div>
   );
 }
