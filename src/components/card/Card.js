@@ -1,11 +1,17 @@
- import "./Card.scss"; 
+ import "./Card.scss";
+ import { useState } from "react"; 
 
 function Card (props) {
-  const {name, price, src} = props;
+  const [isAdded, setIsAdded] = useState(false);
+
+  const onClickPlus = () =>{
+    setIsAdded(!isAdded);  
+  }
+  const {name, price, src, onClickFavorite} = props;
     return (
 
         <div className="card">
-          <div className="favorite">
+          <div className="favorite" onClick={onClickFavorite}>
             <img src="img/heart-unliked.svg" alt="Liked" />
           </div>       
           <img src={src} 
@@ -18,8 +24,9 @@ function Card (props) {
               <span>Price:</span>
               <b>{price}</b>
             </div>
-           <button className="button">
-              <img src="/img/plus.svg" alt="Plus button" />
+           <button className="button"
+                   onClick={onClickPlus}>
+              <img src={isAdded ? "/img/green-btn.svg" : "/img/plus.svg"} alt="Plus button" />
            </button>
           </div>
         </div>
