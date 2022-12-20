@@ -3,9 +3,10 @@ import {AiOutlineHeart} from 'react-icons/ai';
 import {BiUserCircle} from 'react-icons/bi';
 
 
-function Header() {
+function Header(props) {
+ const {onOpenCart} = props;
     return(
-        <header className='d-flex justify-between p-40'>
+        <header className='d-flex justify-between p-40 '>
             <div className='d-flex align-center'> 
               <img src = "/img/logo.png" width = {40} height = {40} alt = "logo"/>
               <div className='headerInfo'>
@@ -16,7 +17,8 @@ function Header() {
   
             <ul className='d-flex justify-between align-center'>
                 <li className='mr-30'>
-                  <FaShoppingCart className='icon icon-cart mr-10'/>
+                  <FaShoppingCart className='icon icon-cart mr-10 cu-p'
+                                  onClick={onOpenCart}/>
                   <span>1205 $</span>
                 </li>
                 <li>
