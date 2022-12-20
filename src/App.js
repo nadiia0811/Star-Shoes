@@ -1,8 +1,9 @@
-import Card from './components/Card';
+
+import { useState } from 'react';
+import Card from './components/card/Card';
 import Drawer from './components/Drawer';
 import Header from './components/Header';
 import './index.scss';
-
 
 const cards = [
   { 
@@ -48,11 +49,14 @@ const cards = [
 ]
 
 function App() {
+  const [cartOpened, setCartOpened] = useState(false);
+  
   return (
     
 <div className="wrapper clear">
-    <Drawer />
-    <Header />
+    {cartOpened ? <Drawer onCloseCart={() => setCartOpened(false)}/> : null}
+    <Header onOpenCart={() => setCartOpened(true)}
+             />
 
     <div className="content p-40">
       <div className='d-flex align-center mb-40 justify-between'>
@@ -67,9 +71,12 @@ function App() {
          {cards.map((item,index) => {
            const {name, price, src} = item;           
            return  <Card name={name}
-                         price={price}
+                         price={price} 
                          src={src}
-                         key={index} />        
+                         key={index}                         
+                         onClickFavorite={() => console.log()}
+                         onClickPlus={() => console.log()}
+                          />        
          
            })
           } 
