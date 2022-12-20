@@ -1,0 +1,39 @@
+
+    .card {
+    border: 2px solid #f1f1f1;
+    padding: 20px;
+    width: 220px;
+    border-radius: 30px;
+    transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+    cursor: pointer;
+    margin-bottom: 35px;
+
+    &:hover {
+      box-shadow: 0 14px 20px rgba(0,0,0,0.3);
+    }
+
+    p {
+      font-weight: 500;
+    }
+    span {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+
+    .button {
+        background: #f1f1f1;
+        border: 1px solid #dcdcdc;
+        box-sizing: border-box;
+        border-radius: 8px;
+        height: 32px;
+        width: 32px;
+
+        &:hover {
+          box-shadow: 0 8px 8px rgba(0,0,0,0.3);
+          transform: translateY(-3px);
+        }
+    }                        
+}
+ 
