@@ -23,6 +23,7 @@
     }
 
     .button {
+        position: relative;
         background: #f1f1f1;
         border: 1px solid #dcdcdc;
         box-sizing: border-box;
@@ -31,9 +32,15 @@
         width: 32px;
 
         &:hover {
-          box-shadow: 0 8px 8px rgba(0,0,0,0.3);
-          transform: translateY(-3px);
+          box-shadow: 0 2px 2px rgba(0,0,0,0.3);
+          transform: translateY(-2px);
         }
+
+         img {
+          top: 0;
+          left: 0; 
+          position: absolute;
+        } 
     }                        
 }
  
