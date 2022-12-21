@@ -3,11 +3,13 @@
 
 function Card (props) {
   const [isAdded, setIsAdded] = useState(false);
+  const {name, price, src, onClickFavorite, onPlus} = props;
 
   const onClickPlus = () =>{
-    setIsAdded(!isAdded);  
+    onPlus();
+    setIsAdded(!isAdded); 
   }
-  const {name, price, src, onClickFavorite} = props;
+  
     return (
 
         <div className="card">
@@ -25,7 +27,7 @@ function Card (props) {
               <b>{price}</b>
             </div>
            <button className="button"
-                   onClick={onClickPlus}>
+                   onClick={onClickPlus}> 
               <img src={isAdded ? "/img/green-btn.svg" : "/img/plus.svg"} alt="Plus button" />
            </button>
           </div>
