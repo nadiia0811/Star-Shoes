@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Card from './components/card/Card';
 import Drawer from './components/Drawer';
 import Header from './components/Header';
@@ -69,16 +69,29 @@ import './index.scss';
 ] */
 
 function App() {
+  const [cartItems, setCartItems] = useState([]);
   const [items, setItems] = useState([]);
   const [cartOpened, setCartOpened] = useState(false);
-  
-  fetch('https://63a1cd64ba35b96522e89648.mockapi.io/items')
-      .then(res => res.json())
-      .then(json => setItems(json));      
 
+  console.log(cartItems);
+
+  useEffect(() => {
+    fetch('https://63a1cd64ba35b96522e89648.mockapi.io/items')
+      .then(res => res.json())
+      .then(json => setItems(json));
+  },[]);
+
+  const onAddToCart = (item) => {
+    if(cartItems.indexOf(item) === -1){
+      setCartItems(cartItems => [...cartItems, item]);
+    }
+    
+  }
+  
   return (
   <div className="wrapper clear">
-    {cartOpened && <Drawer onCloseCart={() => setCartOpened(false)}/> } 
+    {cartOpened && <Drawer onCloseCart={() => setCartOpened(false)}
+                           cartItems={cartItems}/> } 
     <Header onOpenCart={() => setCartOpened(true)} />
              
     <div className="content p-40">
@@ -91,32 +104,20 @@ function App() {
       </div>
       
       <div className='d-flex justify-between wrap'>
-       {/*   {cards.map((item,index) => {
-           const {name, price, src} = item;           
-           return  <Card name={name}
-                         price={price} 
-                         src={src}
-                         key={index}                         
-                         onClickFavorite={() => console.log()}
-                         onClickPlus={() => console.log()}
-                          />        
-         
-           }) 
-          } */}
-
+        {items.map((item,index) => {
+            const {name, price, src} = item;           
+            return  <Card name={name}
+                          price={price} 
+                          src={src}
+                          key={index}                         
+                          onClickFavorite={() => console.log()}
+                          onPlus={() => onAddToCart(item)} 
+                          />
+                        
+                          })       
+    
+        } 
           
-
-              {items.map((item,index) => {
-                 const {name, price, src} = item;           
-                 return  <Card name={name}
-                               price={price} 
-                               src={src}
-                               key={index}                         
-                               onClickFavorite={() => console.log()}
-                               onClickPlus={() => console.log()} />        
-         
-           }) 
-          }
       </div>
     </div>   
 </div>
