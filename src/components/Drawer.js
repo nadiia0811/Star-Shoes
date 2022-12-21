@@ -1,44 +1,34 @@
 function Drawer(props) {  
-    const {onCloseCart} = props;
+    const {onCloseCart, cartItems, onRemoveItem} = props;
     return (
         <div className="overlay" >    
             <div className="drawer">
                 <h2 className='mb-30 d-flex justify-between'>Cart <img src="/img/btn-remove.svg" 
-                                                                       alt="Close" 
+                                                                       alt="Close cart" 
                                                                        className="cu-p"
                                                                        onClick={onCloseCart}
                                                                        />
                 </h2>
                 <div className="items d-flex flex-column">
-                    <div className="cart-item d-flex align-center mb-10">
-                        <img src="/img/sneakers/1.jpg" 
-                            alt="sneakers"
-                            className="mr-10" 
-                            width={70} 
-                            height={70}/>
-                        <div className="mr-10">
-                            <p className="mb-5">Man Sneakers Nike Blazer Mid Suede</p>
-                            <b>129 $</b>
-                        </div>
-                        <img src="/img/btn-remove.svg" 
-                            alt="Remove button" 
-                            className="mt-5 remove-btn"/>
-                    </div>
-
-                    <div className="cart-item d-flex align-center mb-10">
-                        <img src="/img/sneakers/5.jpg" 
-                                alt="sneakers"
-                                className="mr-10" 
-                                width={70} 
-                                height={70}/>
-                        <div className="mr-10">
-                            <p className="mb-5">Man Sneakers Puma X Aka Boku Future Rider</p>
-                            <b>119 $</b>
-                        </div>
-                        <img src="/img/btn-remove.svg" 
-                             alt="Remove button" 
-                             className="mt-5 remove-btn" />
-                    </div>
+                    {cartItems.map((item, index) => {
+                        const {name, price, src} = item;
+                        return  <div className="cart-item d-flex align-center mb-10" key={index}>
+                                  <img src={src} 
+                                       alt="sneakers"
+                                       className="mr-10" 
+                                       width={70} 
+                                       height={70}/>
+                                  <div className="mr-10">
+                                    <p className="mb-5">{name}</p>
+                                    <b>{price}</b>
+                                  </div>
+                                  <img src="/img/btn-remove.svg" 
+                                       alt="Remove button" 
+                                       className="mt-5 remove-btn"
+                                       onClick={() => onRemoveItem(item.id)}/>  
+                                </div>
+                  })}
+                    
                 </div>
 
                 <div className="sum d-flex justify-between mt-50 mb-25">
