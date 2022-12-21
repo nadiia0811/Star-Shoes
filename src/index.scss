@@ -16,6 +16,15 @@
     max-width: 1080px;
     margin: 50px auto;
 
+    .green-button {
+      width: 80px;
+      padding: 5px;
+      border-radius: 5px;
+      border: none;
+      background-color: #67b10c;
+      color: #fff;
+    }
+
     .overlay {
       position: absolute;
       left: 0;
