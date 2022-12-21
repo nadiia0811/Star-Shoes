@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Card from './components/card/Card';
 import Drawer from './components/Drawer';
 import Header from './components/Header';
+import axios from 'axios';
 import './index.scss';
 
 /* const cards = [
@@ -72,39 +73,53 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
   const [items, setItems] = useState([]);
   const [cartOpened, setCartOpened] = useState(false);
-
-  console.log(cartItems);
+  const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
-    fetch('https://63a1cd64ba35b96522e89648.mockapi.io/items')
-      .then(res => res.json())
-      .then(json => setItems(json));
+      axios.get('https://63a1cd64ba35b96522e89648.mockapi.io/items')
+           .then(res => setItems(res.data));
+      axios.get('https://63a1cd64ba35b96522e89648.mockapi.io/cart')
+      .then(res => setCartItems(res.data));     
+           
   },[]);
 
-  const onAddToCart = (item) => {
+  const onAddToCart = (item) => { 
     if(cartItems.indexOf(item) === -1){
+      axios.post('https://63a1cd64ba35b96522e89648.mockapi.io/cart', item);
       setCartItems(cartItems => [...cartItems, item]);
-    }
-    
+    }  
+  }
+
+  const onRemoveItem = (id) => {
+    axios.delete(`https://63a1cd64ba35b96522e89648.mockapi.io/cart/${id}`);
+    setCartItems(cartItems => cartItems.filter(item => item.id !== id))
+  }
+
+  const onChangeSearchInput = (e) => {
+    setSearchValue(e.target.value);
+    console.log(e.target.value);
   }
   
   return (
   <div className="wrapper clear">
     {cartOpened && <Drawer onCloseCart={() => setCartOpened(false)}
-                           cartItems={cartItems}/> } 
+                           cartItems={cartItems}
+                           onRemoveItem={onRemoveItem}/> } 
     <Header onOpenCart={() => setCartOpened(true)} />
              
     <div className="content p-40">
       <div className='d-flex align-center mb-40 justify-between'>
-          <h1>All sneakers</h1>
+          <h1>{searchValue ? `Search on request "${searchValue}"` : "All sneakers"}</h1> 
           <div className='search-block d-flex'>
               <img src="/img/search.svg" alt="Search" />
-              <input type="text" placeholder = "Search..." />
+              <input type="text" placeholder = "Search..." 
+                     onChange={onChangeSearchInput} value={searchValue}/>
             </div>
       </div>
       
       <div className='d-flex justify-between wrap'>
-        {items.map((item,index) => {
+        {items.filter(item => item.name.toLowerCase().includes(searchValue))
+              .map((item,index) => {
             const {name, price, src} = item;           
             return  <Card name={name}
                           price={price} 
