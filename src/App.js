@@ -125,7 +125,6 @@ function App() {
                           price={price} 
                           src={src}
                           key={index}                         
-                          onClickFavorite={() => console.log()}
                           onPlus={() => onAddToCart(item)} 
                           />
                         
