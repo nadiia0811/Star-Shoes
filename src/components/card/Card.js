@@ -3,18 +3,23 @@
 
 function Card (props) {
   const [isAdded, setIsAdded] = useState(false);
-  const {name, price, src, onClickFavorite, onPlus} = props;
+  const [isFavorite, setIsFavorite] = useState(false);
+  const {name, price, src, onPlus} = props;
 
   const onClickPlus = () =>{
     onPlus();
     setIsAdded(!isAdded); 
+  }
+
+  const onClickFavorite = () => {
+    setIsFavorite(isFavorite => !isFavorite);
   }
   
     return (
 
         <div className="card">
           <div className="favorite" onClick={onClickFavorite}>
-            <img src="img/heart-unliked.svg" alt="Liked" />
+            <img src={isFavorite ? "img/heart-liked.svg" : "img/heart-unliked.svg"} alt="Liked" />
           </div>       
           <img src={src} 
                alt="Sneakers" 
