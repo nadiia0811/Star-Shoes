@@ -1,1 +1,1 @@
-# Star-Shoes
+ Star Shoes - internet shop of the best shoes. Project contains 3 pages: home - the start page, you can see it when you open this project; favorites - you can see it when you click heart on the card and then click heart icon; and orders page - you can see it when you click order button in the cart and then click the user icon. You can add the goods to the cart by click the plus button on the card, and remove it from the cart. To return to the home page just click on the image on the left top.
